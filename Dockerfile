@@ -1,10 +1,13 @@
-ARG PYTHON_VERSION=3.7
+ARG PYTHON_VERSION=3.8
 FROM python:${PYTHON_VERSION}-alpine
 
 ARG VERSION=latest
 
 ARG USER_ID=45000
 ARG GROUP_ID=45000
+
+ENV PYTHONUNBUFFERED=1
+ENV CRYPTOGRAPHY_DONT_BUILD_RUST=1
 
 COPY files/requirements.txt /requirements.txt
 COPY files/run.sh /run.sh
@@ -13,6 +16,7 @@ COPY files/run.yml /run.yml
 RUN apk add --no-cache \
       dumb-init \
       libstdc++ \
+      py3-setuptools \
     && apk add --no-cache --virtual .build-deps \
       build-base \
       libffi-dev \
