@@ -27,6 +27,7 @@ jobs:
           - 19.0.0
           - 19.1.0
           - 19.2.0
+          - 19.2.1
     steps:
       - uses: actions/checkout@v2
       - uses: docker/setup-buildx-action@v1
