@@ -24,10 +24,9 @@ jobs:
     strategy:
       matrix:
         awx_version:
-          - 19.0.0
-          - 19.1.0
           - 19.2.0
           - 19.2.1
+          - 19.2.2
     steps:
       - uses: actions/checkout@v2
       - uses: docker/setup-buildx-action@v1
